@@ -4,13 +4,7 @@
     "browser": true,
     "node": true
   },
-  "extends": [
-    "eslint:recommended",
-    "airbnb",
-    "plugin:react/recommended",
-    "prettier",
-    "prettier/react"
-  ],
+  "extends": ["eslint:recommended", "airbnb", "prettier", "plugin:react/recommended"],
   "globals": {
     "document": false,
     "escape": false,
@@ -34,6 +28,15 @@
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "linebreak-style": 0,
-    "react/jsx-filename-extension": 0
+    "react/jsx-filename-extension": 0,
+    "no-console": 0,
+    "react/function-component-definition": [
+      true,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "arrow-body-style": ["error", "as-needed"]
   }
 }
