@@ -7,6 +7,7 @@ import { renderToString } from 'react-dom/server';
 
 import App from '../client/app/App';
 import config from './config';
+import apiRoutes from './routes/app';
 import { renderFullPage } from './renderFullPage';
 
 const { NODE_ENV, PORT } = config;
@@ -27,6 +28,8 @@ if (NODE_ENV === 'development') {
   );
   app.use(webpackHotMiddleware(compiler));
 }
+
+app.use('/api', apiRoutes);
 
 app.get('*', (req, res) => {
   const stringComponent = renderToString(<App />);

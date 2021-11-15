@@ -4,7 +4,12 @@
     "browser": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "airbnb", "prettier", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "airbnb",
+    "plugin:react/recommended",
+    "prettier"
+  ],
   "globals": {
     "document": false,
     "escape": false,
@@ -25,18 +30,27 @@
       "jsx": true
     }
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
     "linebreak-style": 0,
     "react/jsx-filename-extension": 0,
     "no-console": 0,
+    "arrow-body-style": ["error", "as-needed"],
+    "no-underscore-dangle": 0,
+    "camelcase": "off",
+    "import/prefer-default-export": "off",
+    "no-use-before-define": ["error", { "variables": false }],
     "react/function-component-definition": [
-      true,
+      2,
       {
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ],
-    "arrow-body-style": ["error", "as-needed"]
+    ]
   }
 }
