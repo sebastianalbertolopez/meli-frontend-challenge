@@ -12,13 +12,12 @@ productsController.list = async (req, res, next) => {
     const items = results.map((item) => ({
       ..._buildGenericResponse(item),
       picture: item.thumbnail,
-      address: item.address.state_name,
+      location: item.address.state_name,
     }));
 
-    const [[categories]] = filters.map(({ values }) =>
-      values.map(({ path_from_root }) =>
-        _buildCategoriesResponse(path_from_root),
-      ),
+    const { values } = filters.find(({ id }) => id === 'category');
+    const [categories] = values?.map(({ path_from_root }) =>
+      _buildCategoriesResponse(path_from_root),
     );
 
     sendOK(res, {
@@ -35,7 +34,7 @@ productsController.getById = async (req, res, next) => {
     const { id } = req.params;
 
     const item = await product.getById(id);
-    const description = await product.getDescription(id);
+    const { plain_text: description } = await product.getDescription(id);
 
     const { category_id, pictures, sold_quantity } = item;
     const { path_from_root: path } = await category.getById(category_id);
@@ -61,18 +60,26 @@ const _buildGenericResponse = ({
   price: amount,
   condition,
   shipping,
-}) => ({
-  id,
-  title,
-  price: {
+}) => {
+  const price = {
+    ...splitPrice(amount),
     currency,
-    amount,
-    decimals: 2,
-  },
-  condition,
-  free_shipping: shipping.free_shipping,
-});
+  };
 
-const _buildCategoriesResponse = (path) => path.map(({ name }) => name);
+  return {
+    id,
+    title,
+    price,
+    condition,
+    free_shipping: shipping.free_shipping,
+  };
+};
+
+const splitPrice = (price) => {
+  const [amount, decimals] = price.toString().split('.');
+  return { amount: parseInt(amount, 10), decimals: parseInt(decimals, 10) };
+};
+
+const _buildCategoriesResponse = (path) => path?.map(({ name }) => name);
 
 export default productsController;

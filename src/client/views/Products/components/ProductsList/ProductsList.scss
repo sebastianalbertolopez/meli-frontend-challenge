@@ -1,0 +1,35 @@
+@import '../../../../assets/stylesheets/variables';
+
+#products-list {
+  background-color: #ffffff;
+  border-radius: 4px;
+  justify-content: center;
+
+  #product-item {
+    &:not(:last-child) {
+      border-bottom: 1px solid $light-gray;
+    }
+
+    .price {
+      font-size: 24px;
+      font-weight: 400;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: normal;
+      color: $dark;
+    }
+
+    .location {
+      margin-top: 1rem;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .condition {
+      font-size: 14px;
+      color: $dark-gray;
+    }
+  }
+}

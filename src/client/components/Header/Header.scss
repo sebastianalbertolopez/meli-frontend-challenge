@@ -1,0 +1,27 @@
+@import '../../assets/stylesheets/variables';
+
+header {
+  background-color: $yellow;
+  padding: 0.5rem;
+
+  #logo-meli {
+    margin-right: 2rem;
+  }
+
+  input#search {
+    border: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  #submit-search {
+    background-color: $light-gray;
+    border: none;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

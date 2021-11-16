@@ -10,9 +10,10 @@ module.exports = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.js',
+    filename: 'assets/app.js',
     publicPath: '/',
   },
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -41,7 +42,7 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: '[hash].[ext]',
+              name: 'assets/[hash].[ext]',
             },
           },
         ],
@@ -54,7 +55,7 @@ module.exports = {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'app.css',
+      filename: 'assets/app.css',
     }),
   ],
 };
