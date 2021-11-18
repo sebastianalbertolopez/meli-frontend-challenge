@@ -5,13 +5,11 @@ import './Breadcrumb.scss';
 
 const Breadcrumb = ({ items }) => (
   <div className='py-3' id='breadcrumb' data-testid='breadcrumb'>
-    <div>
-      {items?.map((item, idx) => (
-        <span key={idx}>
-          {item} {idx < items.length - 1 ? ' > ' : ''}
-        </span>
-      ))}
-    </div>
+    {items?.map((item, idx) => (
+      <span key={idx}>
+        {item} {idx < items.length - 1 ? ' > ' : ''}
+      </span>
+    ))}
   </div>
 );
 

@@ -4,12 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: [
-    './src/client/index.js',
+    path.join(__dirname, 'src/client/index.js'),
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=2000&reload=true',
   ],
   mode: 'development',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'src/server/public'),
     filename: 'assets/app.js',
     publicPath: '/',
   },
@@ -48,6 +48,29 @@ module.exports = {
         ],
       },
     ],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'async',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          name: 'vendors',
+          chunks: 'all',
+          reuseExistingChunk: true,
+          priority: 1,
+          filename: 'assets/vendor.js',
+          enforce: true,
+          test(module, chunks) {
+            const name = module.nameForCondition && module.nameForCondition();
+            return chunks.some(
+              (chunk) =>
+                chunk.name !== 'vendors' && /[\\/]node_modules[\\/]/.test(name),
+            );
+          },
+        },
+      },
+    },
   },
   devServer: {
     historyApiFallback: true,

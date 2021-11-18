@@ -6,13 +6,7 @@ import meliAvatar from '../../assets/images/logo-meli.png';
 
 const Avatar = (props) => (
   <Link to='/'>
-    <Image
-      id='logo-meli'
-      data-testid='logo-meli'
-      href='/'
-      src={meliAvatar}
-      {...props}
-    />
+    <Image id='logo-meli' data-testid='logo-meli' src={meliAvatar} {...props} />
   </Link>
 );
 

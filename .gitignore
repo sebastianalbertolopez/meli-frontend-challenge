@@ -5,16 +5,10 @@
 /coverage
 
 # production
-/dist
+/src/server/public
 
 # misc
 .DS_Store
 
-# Coverage directory used by tools like istanbul
-coverage
-
 # Optional npm cache directory
 .npm
-
-# dotenv environment variables file
-.env

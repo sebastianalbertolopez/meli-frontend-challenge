@@ -8,7 +8,10 @@ import ProductsList from './components/ProductsList';
 import { getItemsEndpoint } from '../../api/itemsEndpoints';
 
 const Products = ({ history }) => {
-  const endpoint = getItemsEndpoint(history.location.state);
+  const searchParam = new URLSearchParams(history.location.search).get(
+    'search',
+  );
+  const endpoint = getItemsEndpoint(searchParam);
   const { loading, data, error } = useFetch(endpoint);
 
   const WithLoadingProducts = withLoading(() => (
