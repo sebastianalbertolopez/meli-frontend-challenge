@@ -1,49 +1,43 @@
 @import '../../../../assets/stylesheets/variables';
 
-.product-details {
-  background-color: #ffffff;
-  border-radius: 4px;
-  justify-content: center;
+.subtitle {
+  font-size: 14px;
+  color: $dark-gray;
+}
 
-  .subtitle {
-    font-size: 14px;
-    color: $dark-gray;
+.title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 400;
+
+  .decimals {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.4em;
+    margin-left: 0.05em;
+    vertical-align: super;
   }
+}
 
-  .title {
-    font-size: 18px;
-    font-weight: bold;
+#buy {
+  background-color: $blue;
+
+  &:active,
+  &:focus {
+    box-shadow: none;
   }
+}
 
-  .price {
-    font-size: 36px;
-    font-weight: 400;
+.description-title {
+  font-size: 25px;
+  font-weight: 400;
+}
 
-    .decimals {
-      font-size: 16px;
-      font-weight: normal;
-      line-height: 1.4em;
-      margin-left: 0.05em;
-      vertical-align: super;
-    }
-  }
-
-  #buy {
-    background-color: $blue;
-
-    &:active,
-    &:focus {
-      box-shadow: none;
-    }
-  }
-
-  .description-title {
-    font-size: 25px;
-    font-weight: 400;
-  }
-
-  .description {
-    color: $gray;
-    white-space: pre-wrap;
-  }
+.description {
+  color: $gray;
+  white-space: pre-wrap;
 }

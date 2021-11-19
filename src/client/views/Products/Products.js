@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import useFetch from '../../hooks/useFetch';
 import withLoading from '../../hocs/withLoading';
 import Breadcrumb from '../../components/Breadcrumb';
+import Notification from '../../components/Notification';
 import ProductsList from './components/ProductsList';
 import { getItemsEndpoint } from '../../api/itemsEndpoints';
 
@@ -13,24 +14,25 @@ const Products = ({ history }) => {
   );
   const endpoint = getItemsEndpoint(searchParam);
   const { loading, data, error } = useFetch(endpoint);
+  const { items, categories } = data;
 
   const WithLoadingProducts = withLoading(() => (
     <div data-testid='products' className='w-100 d-md-flex flex-column'>
-      {data?.items?.length && (
+      {!!items?.length && (
         <>
-          <Breadcrumb items={data.categories} />
-          <ProductsList products={data.items} />
+          <Breadcrumb items={categories} />
+          <ProductsList products={items} />
         </>
       )}
 
-      {error && <h2>{error}</h2>}
+      {error && <Notification message={error} />}
     </div>
   ));
 
   return (
     <>
       <Helmet>
-        <title>MeLi frontend challenge SSR - Products</title>
+        <title>MeLi frontend challenge SSR - Productos</title>
       </Helmet>
       <WithLoadingProducts isLoading={loading} />
     </>

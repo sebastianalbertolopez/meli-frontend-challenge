@@ -14,6 +14,7 @@ import apiRoutes from './routes/app';
 import clientRoutes from '../client/routes/routes';
 import { renderFullPage } from './renderFullPage';
 import manifestMiddleware from './middlewares/manifest';
+import errorsHandlerMiddleware from './middlewares/errorsHandler';
 
 const { NODE_ENV, PORT } = config;
 const server = express();
@@ -66,6 +67,8 @@ server.get('*', (req, res) => {
     renderFullPage(stringComponent, Helmet.renderStatic(), req.hashManifest),
   );
 });
+
+server.use(errorsHandlerMiddleware);
 
 server.listen(PORT, (err) => {
   if (err) return console.log(err);

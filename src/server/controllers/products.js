@@ -15,10 +15,12 @@ productsController.list = async (req, res, next) => {
       location: item.address.state_name,
     }));
 
-    const { values } = filters.find(({ id }) => id === 'category');
-    const [categories] = values?.map(({ path_from_root }) =>
-      _buildCategoriesResponse(path_from_root),
-    );
+    const { values } = filters.find(({ id }) => id === 'category') ?? {};
+
+    const [categories] =
+      values?.map(({ path_from_root }) =>
+        _buildCategoriesResponse(path_from_root),
+      ) ?? [];
 
     sendOK(res, {
       items,

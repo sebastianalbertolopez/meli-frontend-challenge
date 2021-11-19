@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Image, Button } from 'react-bootstrap';
 
+import Jumbotron from '../../../../components/Jumbotron';
 import FreeShippingIcon from '../../../../components/FreeShippingIcon';
 import { getFormattedPrice, getCondition } from '../../../../utils/helpers';
 import './ProductDetails.scss';
@@ -15,10 +16,7 @@ const ProductDetails = ({
   sold_quantity,
   description,
 }) => (
-  <section
-    data-testid={`product-details-${id}`}
-    className='product-details px-4 mb-5'
-  >
+  <Jumbotron classes='px-4 mb-5' data-testid={`product-details-${id}`}>
     <Row className='pb-5'>
       <Col md={8} className='text-center'>
         <Image src={picture} alt={title} />
@@ -44,7 +42,7 @@ const ProductDetails = ({
         <div className='description'>{description}</div>
       </Col>
     </Row>
-  </section>
+  </Jumbotron>
 );
 
 export default ProductDetails;

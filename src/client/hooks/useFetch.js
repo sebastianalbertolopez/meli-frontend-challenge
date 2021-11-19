@@ -17,13 +17,9 @@ const useFetch = (endpoint) => {
       dispatch(setLoading());
       const { data } = await API.get(endpoint);
       dispatch(setData(data));
-    } catch (e) {
-      console.error(e);
-      dispatch(
-        setError(
-          e?.message ?? 'Ocurrió un error al intentar obtener los datos',
-        ),
-      );
+    } catch ({ response }) {
+      const { data: error } = response;
+      dispatch(setError(error.message));
     }
   }, [endpoint]);
 

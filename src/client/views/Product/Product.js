@@ -5,29 +5,31 @@ import useFetch from '../../hooks/useFetch';
 import withLoading from '../../hocs/withLoading';
 import Breadcrumb from '../../components/Breadcrumb';
 import ProductDetails from './components/ProductDetails';
+import Notification from '../../components/Notification';
 import { getItemEndpoint } from '../../api/itemsEndpoints';
 
 const Product = ({ match }) => {
   const endpoint = getItemEndpoint(match.params.id);
   const { loading, data, error } = useFetch(endpoint);
+  const { item } = data;
 
   const WithLoadingProduct = withLoading(() => (
     <div data-testid='product' className='w-100 d-md-flex flex-column'>
-      {!!data?.item && (
+      {!!item && (
         <>
-          <Breadcrumb items={data.item.categories} />
-          <ProductDetails {...data.item} />
+          <Breadcrumb items={item.categories} />
+          <ProductDetails {...item} />
         </>
       )}
 
-      {error && <h2>{error}</h2>}
+      {error && <Notification message={error} />}
     </div>
   ));
 
   return (
     <>
       <Helmet>
-        <title>MeLi frontend challenge SSR - Product</title>
+        <title>MeLi frontend challenge SSR - Producto</title>
       </Helmet>
       <WithLoadingProduct isLoading={loading} />
     </>

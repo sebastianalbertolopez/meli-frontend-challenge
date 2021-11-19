@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col, Image } from 'react-bootstrap';
 
+import Jumbotron from '../../../../components/Jumbotron';
 import FreeShippingIcon from '../../../../components/FreeShippingIcon';
 import { getFormattedPrice, getCondition } from '../../../../utils/helpers';
 import './ProductsList.scss';
@@ -11,7 +12,7 @@ const ProductLink = ({ children, id }) => (
 );
 
 const ProductsList = ({ products }) => (
-  <section id='products-list' className='px-3 mb-5' data-testid='products-list'>
+  <Jumbotron classes='px-3 mb-5' data-testid='products-list'>
     {products?.map(
       ({ id, title, picture, price, condition, location, free_shipping }) => (
         <Row
@@ -50,7 +51,7 @@ const ProductsList = ({ products }) => (
         </Row>
       ),
     )}
-  </section>
+  </Jumbotron>
 );
 
 export default ProductsList;
