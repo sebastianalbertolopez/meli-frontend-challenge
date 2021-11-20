@@ -20,13 +20,13 @@ App "built from scratch" de búsqueda de productos.
 
 ### ✔ Funcionalidades
 
-▪ Home `/`
+- Home `/`
 ![image](https://user-images.githubusercontent.com/23554928/142732027-9aa7494e-1325-4b0b-89db-0dbf3123ae39.png)
 
-▪ Listado de productos `/items?search=:query`
+- Listado de productos `/items?search=:query`
 ![image](https://user-images.githubusercontent.com/23554928/142732014-71c4d295-c3bb-439a-a6d9-94476bd20969.png)
 
-▪ Detalle de producto `/items/:id`
+- Detalle de producto `/items/:id`
 ![image](https://user-images.githubusercontent.com/23554928/142731967-72d854af-f43b-40d7-be37-b6f8e26c87a3.png)
 
 
