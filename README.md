@@ -1,6 +1,6 @@
-# ![MercadoLibre](https://http2.mlstatic.com/frontend-assets/ui-navigation/5.6.1/mercadolibre/logo__large_plus.png) Test Práctico Frontend - Mercado Libre.
+### ![MercadoLibre](https://http2.mlstatic.com/frontend-assets/ui-navigation/5.6.1/mercadolibre/logo__large_plus.png) Test Práctico Frontend - Mercado Libre.
 
-# Principales tecnologías utilizadas
+### Principales tecnologías utilizadas
 
 ![React](https://img.shields.io/badge/-React-20232a?logo=react&style=for-the-badge)
 ![NodeJs](https://img.shields.io/badge/-NodeJs-323230?logo=Node.js&style=for-the-badge)
@@ -12,16 +12,29 @@
 ![Enzyme](https://img.shields.io/badge/-Enzyme-323230?logo=Enzyme&style=for-the-badge)
 
 
-# Introducción
+### ✨ Introducción
 
 Challenge práctico para aspirantes al área de front-end de Mercado Libre.
 App "built from scratch" de búsqueda de productos.
 
 
+### ✔ Funcionalidades
+
+▪ Home `/`
+![image](https://user-images.githubusercontent.com/23554928/142731778-eeb905eb-f768-46bb-991c-ac91e2f5fc25.png)
+
+▪ Listado de productos `/items?search=:query`
+![image](https://user-images.githubusercontent.com/23554928/142731939-1407a5dd-0c4c-4b07-8578-bf050cb53f21.png)
+
+▪ Detalle de producto `/items/:id`
+![image](https://user-images.githubusercontent.com/23554928/142731967-72d854af-f43b-40d7-be37-b6f8e26c87a3.png)
+
+
+
 ### 💻 Instalación y Ejecución
 
 Se requiere de [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/).
-(Este ejemplo fue desarrollado con la versión 14.17.0 de Node.js y 6.14.13 de npm).
+(Este ejemplo fue desarrollado con la versión `14.17.0` de Node.js y `6.14.13` de npm).
 
 ```sh
 $ git clone https://github.com/sebastianalbertolopez/meli-frontend-challenge
