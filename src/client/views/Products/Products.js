@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import useFetch from '../../hooks/useFetch';
 import withLoading from '../../hocs/withLoading';
 import Breadcrumb from '../../components/Breadcrumb';
 import Notification from '../../components/Notification';
 import ProductsList from './components/ProductsList';
-import { getItemsEndpoint } from '../../api/itemsEndpoints';
+import { useProducts } from '../../contexts/Products';
 
-const Products = ({ history }) => {
-  const searchParam = new URLSearchParams(history.location.search).get(
-    'search',
-  );
-  const endpoint = getItemsEndpoint(searchParam);
-  const { loading, data, error } = useFetch(endpoint);
+const Products = () => {
+  const history = useHistory();
+  const { loading, data, error, setProduct } = useProducts();
   const { items, categories } = data;
+
+  const { search } = history.location;
+
+  useEffect(() => {
+    setProduct(new URLSearchParams(search).get('search') ?? '');
+    return () => setProduct('');
+  }, [search]);
 
   const WithLoadingProducts = withLoading(() => (
     <div data-testid='products' className='w-100 d-md-flex flex-column'>

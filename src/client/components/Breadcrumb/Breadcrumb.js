@@ -16,4 +16,5 @@ const Breadcrumb = ({ items }) => (
 Breadcrumb.propTypes = {
   items: propTypes.arrayOf(propTypes.string),
 };
+
 export default Breadcrumb;

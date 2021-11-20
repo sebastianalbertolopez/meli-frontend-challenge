@@ -3,9 +3,13 @@ import Loader from 'react-loader-spinner';
 import { Row, Col } from 'react-bootstrap';
 
 const Loading = () => (
-  <Row className='justify-content-center h-100 w-100 align-items-center'>
+  <Row
+    data-testid='loading'
+    className='justify-content-center h-100 w-100 align-items-center'
+  >
     <Col className='text-center'>
       <Loader
+        data-testid='spinner'
         type='Oval'
         color='#999999'
         height={40}

@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { Row, Col, Image, Button } from 'react-bootstrap';
 
 import Jumbotron from '../../../../components/Jumbotron';
@@ -44,5 +45,20 @@ const ProductDetails = ({
     </Row>
   </Jumbotron>
 );
+
+ProductDetails.propTypes = {
+  id: propTypes.string.isRequired,
+  title: propTypes.string.isRequired,
+  price: propTypes.shape({
+    amount: propTypes.number.isRequired,
+    decimals: propTypes.number,
+    currency: propTypes.string.isRequired,
+  }),
+  picture: propTypes.string.isRequired,
+  condition: propTypes.string.isRequired,
+  free_shipping: propTypes.bool.isRequired,
+  sold_quantity: propTypes.number.isRequired,
+  description: propTypes.string.isRequired,
+};
 
 export default ProductDetails;

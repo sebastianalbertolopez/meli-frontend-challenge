@@ -14,7 +14,6 @@ const useFetch = (endpoint) => {
 
   const fetchData = useCallback(async () => {
     try {
-      dispatch(setLoading());
       const { data } = await API.get(endpoint);
       dispatch(setData(data));
     } catch ({ response }) {
@@ -24,7 +23,8 @@ const useFetch = (endpoint) => {
   }, [endpoint]);
 
   useEffect(() => {
-    fetchData();
+    dispatch(setLoading());
+    endpoint && fetchData();
   }, [fetchData]);
 
   return state;

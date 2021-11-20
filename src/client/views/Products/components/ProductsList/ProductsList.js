@@ -1,15 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 import { Row, Col, Image } from 'react-bootstrap';
 
 import Jumbotron from '../../../../components/Jumbotron';
 import FreeShippingIcon from '../../../../components/FreeShippingIcon';
+import ProductLink from '../ProductLink';
 import { getFormattedPrice, getCondition } from '../../../../utils/helpers';
 import './ProductsList.scss';
-
-const ProductLink = ({ children, id }) => (
-  <Link to={`/items/${id}`}>{children}</Link>
-);
 
 const ProductsList = ({ products }) => (
   <Jumbotron classes='px-3 mb-5' data-testid='products-list'>
@@ -53,5 +50,23 @@ const ProductsList = ({ products }) => (
     )}
   </Jumbotron>
 );
+
+ProductsList.propTypes = {
+  products: propTypes.arrayOf(
+    propTypes.shape({
+      id: propTypes.string.isRequired,
+      title: propTypes.string.isRequired,
+      price: propTypes.shape({
+        amount: propTypes.number.isRequired,
+        decimals: propTypes.number,
+        currency: propTypes.string.isRequired,
+      }),
+      condition: propTypes.string.isRequired,
+      free_shipping: propTypes.bool.isRequired,
+      picture: propTypes.string.isRequired,
+      location: propTypes.string.isRequired,
+    }),
+  ),
+};
 
 export default ProductsList;

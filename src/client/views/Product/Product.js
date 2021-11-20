@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 
 import useFetch from '../../hooks/useFetch';
@@ -34,6 +35,10 @@ const Product = ({ match }) => {
       <WithLoadingProduct isLoading={loading} />
     </>
   );
+};
+
+Product.propTypes = {
+  match: propTypes.object.isRequired,
 };
 
 export default Product;

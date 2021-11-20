@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 
 import Jumbotron from '../Jumbotron';
 
@@ -7,5 +8,9 @@ const Notification = ({ message }) => (
     <h3 className=' text-center'>{message}</h3>
   </Jumbotron>
 );
+
+Notification.propTypes = {
+  message: propTypes.string.isRequired,
+};
 
 export default Notification;
