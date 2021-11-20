@@ -18,11 +18,11 @@ const ProductDetails = ({
   description,
 }) => (
   <Jumbotron classes='px-4 mb-5' data-testid={`product-details-${id}`}>
-    <Row className='pb-5'>
+    <Row className='py-4'>
       <Col md={8} className='text-center'>
         <Image src={picture} alt={title} />
       </Col>
-      <Col md={4} className='pt-4'>
+      <Col md={4}>
         <div className='subtitle py-1'>
           {getCondition(condition)} | {sold_quantity} vendidos
           {free_shipping && <FreeShippingIcon classes='align-middle ml-1' />}

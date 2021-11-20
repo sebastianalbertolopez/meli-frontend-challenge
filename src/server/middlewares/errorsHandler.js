@@ -12,9 +12,28 @@ const getErrorMessage = ({ status, message }) => {
   }
 };
 
+const getStatusByCode = (code) => {
+  switch (code) {
+    case 'NOT_FOUND': {
+      return { status: 404 };
+    }
+    default: {
+      return { status: 500 };
+    }
+  }
+};
+
 const customErrorMiddleware = (err, req, res, next) => {
-  const { response } = err ?? {};
-  const { status, message } = response?.data ?? { status: 500 };
+  let error;
+
+  if (!err || !err.response) {
+    error = getStatusByCode(err?.message);
+  } else {
+    const { data, status } = err.response;
+    error = { status: status ?? data.status, message: data.message };
+  }
+
+  const { status, message } = error;
 
   res
     .status(status)

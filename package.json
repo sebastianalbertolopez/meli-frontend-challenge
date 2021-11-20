@@ -7,13 +7,14 @@
     "url": "https://github.com/sebastianalbertolopez/meli-frontend-challenge.git"
   },
   "scripts": {
-    "test": "jest --coverage",
     "build": "webpack-cli --config webpack.config.prod.js",
     "start": "npm run build && node src/server/index",
     "start:dev": "nodemon src/server/index",
     "prettify": "prettier --write src/",
     "lint": "eslint src/ --ext .js --ext .jsx",
     "lint:fix": "eslint src/ --ext .js --ext .jsx --fix",
+    "test": "jest --coverage --verbose --silent",
+    "test:watch": "npm run test -- --watch",
     "prepare": "husky install"
   },
   "author": "Sebastián Alberto López <lopez.sebastiann.alberto@gmail.com>",

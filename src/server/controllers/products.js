@@ -9,6 +9,8 @@ productsController.list = async (req, res, next) => {
     const { q } = req.query;
     const { results, filters } = await product.list(q);
 
+    if (!results.length) throw new Error('NOT_FOUND');
+
     const items = results.map((item) => ({
       ..._buildGenericResponse(item),
       picture: item.thumbnail,
