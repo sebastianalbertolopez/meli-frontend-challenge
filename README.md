@@ -11,10 +11,12 @@
 ![Jest](https://img.shields.io/badge/-Jest-C21325?logo=Jest&style=for-the-badge)
 ![Enzyme](https://img.shields.io/badge/-Enzyme-323230?logo=Enzyme&style=for-the-badge)
 
+
 # Introducción
 
 Challenge práctico para aspirantes al área de front-end de Mercado Libre.
 App "built from scratch" de búsqueda de productos.
+
 
 ### 💻 Instalación y Ejecución
 
@@ -22,11 +24,12 @@ Se requiere de [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/).
 (Este ejemplo fue desarrollado con la versión 14.17.0 de Node.js y 6.14.13 de npm).
 
 ```sh
-git clone https://github.com/sebastianalbertolopez/meli-frontend-challenge
-cd meli-frontend-challenge
-npm i
-npm start
+$ git clone https://github.com/sebastianalbertolopez/meli-frontend-challenge
+$ cd meli-frontend-challenge
+$ npm i
+$ npm start
 ```
+
 
 ### 🧪 Tests
 
@@ -34,3 +37,12 @@ npm start
 $ npm run test
 ```
 
+
+### 👻 Licence
+
+[MIT](https://opensource.org/licenses/MIT)
+
+
+### 🙌 Agradecimientos
+
+Gracias MercadoLibre por esta oportunidad.
