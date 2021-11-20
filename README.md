@@ -8,7 +8,7 @@
 ![SCSS](https://img.shields.io/badge/SCSS-ffbedf?logo=sass&style=for-the-badge)
 ![Webpack](https://img.shields.io/badge/-Webpack-2b3b42?logo=webpack&style=for-the-badge)
 ![Babel](https://img.shields.io/badge/-Babel-323230?logo=babel&style=for-the-badge)
-![Jest](https://img.shields.io/badge/-Jest-323230?logo=Jest&style=for-the-badge)
+![Jest](https://img.shields.io/badge/-Jest-C21325?logo=Jest&style=for-the-badge)
 
 # Introducción
 
